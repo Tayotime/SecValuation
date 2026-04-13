@@ -3,4 +3,10 @@ pandas
 matplotlib.pyplot
 io
 load_workbook
-Image as XLImage
+XLImage
+streamlit
+pandas
+numpy
+yfinance
+openpyxl
+matplotlib
