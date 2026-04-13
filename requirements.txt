@@ -1,4 +1,8 @@
 yfinance
+pandas
+matplotlib.pyplot
+io
 openpyxl
-matplotlib
-matplotlib
+load_workbook
+openpyxl.drawing.image
+Image 
