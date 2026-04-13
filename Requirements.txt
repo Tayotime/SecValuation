@@ -1,3 +1,7 @@
-streamlit==1.24.1
-pandas>2.0
-numpy<=1.25.1
+
+yfinance 
+pandas
+matplotlib.pyplot
+io
+load_workbook
+Image as XLImage
