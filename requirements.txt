@@ -1,7 +1,3 @@
 yfinance
-matplotlib
-io
 openpyxl
-load_workbook
-openpyxl
-Image 
+Pillow
