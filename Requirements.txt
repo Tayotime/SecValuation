@@ -1,12 +1,4 @@
-yfinance 
-pandas
-matplotlib.pyplot
-io
-load_workbook
-XLImage
-streamlit
-pandas
-numpy
 yfinance
 openpyxl
+matplotlib
 matplotlib
