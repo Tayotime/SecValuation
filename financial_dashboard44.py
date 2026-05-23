@@ -114,7 +114,8 @@ try:
     metrics["Cash"] = safe_series(balance_filtered, "Cash And Cash Equivalents")
     metrics["Net Debt"] = safe_series(balance_filtered, "Net Debt")
     metrics["EPV @ 7%"] = (metrics["Free Cash Flow"] / 0.07) - metrics["Net Debt"]
-
+    metrics["Diluted Average Shares"] = safe_series(income_filtered, "Diluted Average Shares")
+    metrics["Stock Price - 60% EPV MOS"] = ( metrics["EPV @ 7%"] / metrics["Diluted Average Shares"]) * 0.6
 # Graphing data 
     #metrics["EPV Absolute"] = metrics["EPV @ 7%"]- metrics["Equity Book Value"]
     #metrics["FV Absolute"] = metrics["EPV @ 7%"]
