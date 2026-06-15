@@ -113,7 +113,7 @@ try:
     metrics["Equity Book Value"] = safe_series(balance_filtered, "Stockholders Equity")
     metrics["Cash"] = safe_series(balance_filtered, "Cash And Cash Equivalents")
     metrics["Total Debt"] = safe_series(balance_filtered, "Total Debt")
-    metrics["Interest bearing Total Debt"] = safe_series(balance_filtered, "current debt") # + "long_term_debt")
+    metrics["Interest bearing Total Debt"] = safe_series(balance_filtered, "Current Debt") # + "long_term_debt")
     metrics["Net Debt"] = safe_series(balance_filtered, "Net Debt")
     metrics["EPV @ 7%"] = (metrics["Free Cash Flow"] / 0.07) - metrics["Net Debt"]
     metrics["Diluted Average Shares"] = safe_series(income_filtered, "Diluted Average Shares")
