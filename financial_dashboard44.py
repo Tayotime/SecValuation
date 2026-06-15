@@ -103,23 +103,23 @@ try:
     # Derived Metrics
     # ----------------------------
     metrics = pd.DataFrame(index=income_filtered.index)
-    metrics["Revenue"] = safe_series(income_filtered, "Total Revenue")
-    metrics["Net Income"] = safe_series(income_filtered, "Net Income")
-    metrics["Free Cash Flow"] = safe_series(cashflow_filtered, "Free Cash Flow")
-    metrics["Capex"] = safe_series(cashflow_filtered, "Capital Expenditure")
-    metrics["Depreciation"] = safe_series(income_filtered, "Reconciled Depreciation")
-    metrics["Gross Profit"] = safe_series(income_filtered, "Gross Profit")
-    metrics["Gross Margin (%)"] = (metrics["Gross Profit"] / metrics["Revenue"].replace(0, pd.NA) * 100)
-    metrics["Equity Book Value"] = safe_series(balance_filtered, "Stockholders Equity")
-    metrics["Cash"] = safe_series(balance_filtered, "Cash And Cash Equivalents")
-    metrics["Total Debt"] = safe_series(balance_filtered, "Total Debt")
+    metrics["Revenue"] = safe_series(income_filtered, "Total Revenue").fillna(0)
+    metrics["Net Income"] = safe_series(income_filtered, "Net Income").fillna(0)
+    metrics["Free Cash Flow"] = safe_series(cashflow_filtered, "Free Cash Flow").fillna(0)
+    metrics["Capex"] = safe_series(cashflow_filtered, "Capital Expenditure").fillna(0)
+    metrics["Depreciation"] = safe_series(income_filtered, "Reconciled Depreciation").fillna(0)
+    metrics["Gross Profit"] = safe_series(income_filtered, "Gross Profit").fillna(0)
+    metrics["Gross Margin (%)"] = (metrics["Gross Profit"] / metrics["Revenue"].replace(0, pd.NA) * 100).fillna(0)
+    metrics["Equity Book Value"] = safe_series(balance_filtered, "Stockholders Equity").fillna(0)
+    metrics["Cash"] = safe_series(balance_filtered, "Cash And Cash Equivalents").fillna(0)
+    metrics["Total Debt"] = safe_series(balance_filtered, "Total Debt").fillna(0)
     metrics["Interest bearing Current Debt"] = safe_series(balance_filtered, "Current Debt").fillna(0)
     metrics["Interest bearing LT Debt"] = safe_series(balance_filtered, "Long Term Debt").fillna(0)
     metrics["Interest bearing Total Debt"] = metrics["Interest bearing Current Debt"] + metrics["Interest bearing LT Debt"]
     metrics["Net Debt"] = safe_series(balance_filtered, "Net Debt").fillna(0)
-    metrics["EPV @ 7%"] = (metrics["Free Cash Flow"] / 0.07) +  metrics["Cash"] - metrics["Interest bearing Total Debt"]
-    metrics["Diluted Average Shares"] = safe_series(income_filtered, "Diluted Average Shares")
-    metrics["Stock Price - 60% EPV MOS"] = ( metrics["EPV @ 7%"] / metrics["Diluted Average Shares"]) * 0.6
+    metrics["EPV @ 7%"] = (metrics["Free Cash Flow"] / 0.07) +  metrics["Cash"] - metrics["Interest bearing Total Debt"].fillna(0)
+    metrics["Diluted Average Shares"] = safe_series(income_filtered, "Diluted Average Shares").fillna(0)
+    metrics["Stock Price - 60% EPV MOS"] = ( metrics["EPV @ 7%"] / metrics["Diluted Average Shares"]) * 0.6.fillna(0)
 # Graphing data 
     #metrics["EPV Absolute"] = metrics["EPV @ 7%"]- metrics["Equity Book Value"]
     #metrics["FV Absolute"] = metrics["EPV @ 7%"]
