@@ -112,6 +112,7 @@ try:
     metrics["Gross Margin (%)"] = (metrics["Gross Profit"] / metrics["Revenue"].replace(0, pd.NA) * 100)
     metrics["Equity Book Value"] = safe_series(balance_filtered, "Stockholders Equity")
     metrics["Cash"] = safe_series(balance_filtered, "Cash And Cash Equivalents")
+    metrics["Total Debt"] = safe_series(balance_filtered, "Total Debt")
     metrics["Net Debt"] = safe_series(balance_filtered, "Net Debt")
     metrics["EPV @ 7%"] = (metrics["Free Cash Flow"] / 0.07) - metrics["Net Debt"]
     metrics["Diluted Average Shares"] = safe_series(income_filtered, "Diluted Average Shares")
@@ -119,12 +120,6 @@ try:
 # Graphing data 
     #metrics["EPV Absolute"] = metrics["EPV @ 7%"]- metrics["Equity Book Value"]
     #metrics["FV Absolute"] = metrics["EPV @ 7%"]
-
-
-
-
-
-
 
     # ----------------------------
     # ROIC Calculation
