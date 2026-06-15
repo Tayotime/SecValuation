@@ -16,7 +16,7 @@ from openpyxl.drawing.image import Image as XLImage
 # Streamlit App Config
 # ----------------------------
 st.set_page_config(page_title="TayoTime Dashboard", layout="wide")
-st.title("📊 TayoTime Invention and Investments - Apr 2026 - Revfin44")
+st.title("📊 TayoTime Invention and Investments - Apr-June 2026 - Revfin44")
 
 # ----------------------------
 # User Input
