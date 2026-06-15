@@ -117,7 +117,7 @@ try:
     metrics["Interest bearing LT Debt"] = safe_series(balance_filtered, "Long Term Debt")
     metrics["Interest bearing Total Debt"] = metrics["Interest bearing Current Debt"] + metrics["Interest bearing LT Debt"]
     metrics["Net Debt"] = safe_series(balance_filtered, "Net Debt")
-    metrics["EPV @ 7%"] = (metrics["Free Cash Flow"] / 0.07) - metrics["Net Debt"]
+    metrics["EPV @ 7%"] = (metrics["Free Cash Flow"] / 0.07) +  metrics["Cash"] - metrics["Interest bearing Total Debt"]
     metrics["Diluted Average Shares"] = safe_series(income_filtered, "Diluted Average Shares")
     metrics["Stock Price - 60% EPV MOS"] = ( metrics["EPV @ 7%"] / metrics["Diluted Average Shares"]) * 0.6
 # Graphing data 
